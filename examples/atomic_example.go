@@ -1,10 +1,15 @@
 package examples
 
-import "sync/atomic"
+import (
+	"sync"
+	"sync/atomic"
+)
 
 type UserInfo struct {
 	Name string
 }
+
+var lock sync.Mutex
 
 // 操作的原子性
 func getInstanceErr(instance interface{}) interface{} {
